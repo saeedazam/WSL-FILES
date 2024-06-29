@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <title>Roll!</title>
+
+
+
+    <script src="https://s3.amazonaws.com/builds.handlebarsjs.com/handlebars.min-v4.7.8.js"></script>
+    <script>
+
+        let template = Handlebars.compile("<li>You rolled a <img src=\"img/{{ value }}.png\"></li>");
+
+        document.addEventListener('DOMContentLoaded', () => {
+            
+
+            document.querySelector('#roll').onclick = () => {
+                const roll = Math.floor((Math.random() * 6) + 1); 
+                console.log({'value': roll}); 
+
+                let content = template({ 'value': roll });
+                document.querySelector('#rolls').innerHTML += content;
+
+            };
+        });
+    </script>
+</head>
+<body>
+    <button id="roll">Roll</button>
+    <ul id="rolls"></ul>
+</body>
+

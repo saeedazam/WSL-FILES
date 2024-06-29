@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Webpage!</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+
+                load_page('e');
+
+
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.onclick = (event) => {
+                        event.preventDefault();
+                        load_page(link.dataset.page);
+                    };
+                });
+
+
+                function load_page(page) {
+                    const request = new XMLHttpRequest();
+                    request.open('GET', `/${page}`);
+                    request.onload = () => {
+                        if (request.status === 200) {
+                            document.querySelector('#body').innerHTML = request.responseText;
+                        } else {
+                            document.querySelector('#body').innerHTML = '<p>Error loading page.</p>';
+                        }
+
+                        document.title = name;
+                        history.pushState(null, name, name);
+                    };
+                    request.send();
+                }
+            });
+        </script>
+        <title>Webpage!</title>
+    </head>
+    <body>
+        <ul id="nav">
+            <li><a href="" class="nav-link" data-page="first">First page</a></li>
+            <li><a href="" class="nav-link" data-page="second">Second page</a></li>
+            <li><a href="" class="nav-link" data-page="third">Third page</a></li>
+            <li><a href="" class="nav-link" data-page="fourth">Fourth page</a></li>
+        </ul>
+
+        <div id="body">
+
+        </div>
+    </body>
+</html>

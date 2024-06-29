@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <script>
+
+            let counter1 = 0;
+            let counter2 = 0;
+            let counter3 = 0;
+            let counter4 = 0;
+            let counter5 = 0;
+
+            function count1() {
+                counter1++;
+                document.querySelector('#counter1').innerHTML = counter1;
+            }
+
+            function count2() {
+                counter2++;
+                document.querySelector('#counter2').innerHTML = counter2;
+            }
+
+            function count3() {
+                counter3++;
+                document.querySelector('#counter3').innerHTML = counter3;
+            }
+
+            function count4() {
+                counter4++;
+                document.querySelector('#counter4').innerHTML = counter4;
+            }
+
+            function count5() {
+                counter5++;
+                document.querySelector('#counter5').innerHTML = counter5;
+            }
+
+        </script>
+        <style>
+            h1 {
+                display: inline;
+            }
+
+        </style>
+        <title>Webpage!</title>
+    </head>
+    <body>
+        <h1>Count your IP address!</h1>
+        <br><br>
+        <h1 id="counter1">0</h1><h1>.</h1><h1 id="counter2">0</h1><h1>.</h1><h1 id="counter3">0</h1><h1>.</h1><h1 id="counter4">0</h1><h1>/</h1><h1 id="counter5">0</h1>
+        <br><br>
+        <button onclick="count1()">Count the 1st IP!</button>
+        <button onclick="count2()">Count the 2nd IP!</button>
+        <button onclick="count3()">Count the 3rd IP!</button>
+        <button onclick="count4()">Count the 4th IP!</button>
+        <button onclick="count5()">Count the Subnet Mask!</button>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Webpage!</title>
+    </head>
+    <body>
+
+        <ul id="nav">
+            <li style="font-size: 15px;"><a  style="font-size: 15px;" href="{{ url_for('first') }}">First page</a></li>
+            <li style="font-size: 15px;"><a  style="font-size: 15px;" href="{{ url_for('second') }}">Second page</a></li>
+            <li style="font-size: 15px;"><a  style="font-size: 15px;" href="{{ url_for('third') }}">Third page</a></li>
+            <li style="font-size: 15px;"><a  style="font-size: 15px;" href="{{ url_for('fourth') }}">Fourth page</a></li>
+        </ul>
+        <hr>
+        {% block body %}{% endblock %}
+    </body>
+</html>

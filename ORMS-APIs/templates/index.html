@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="mt-5">Book Rank</h1>
+        <form action="/book" method="POST">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="rank_id">Rank ID:</label>
+                <select class="form-control" id="rank_id" name="rank_id" required>
+                    <option disabled selected>Select a rank</option>
+                    <option value="1">Bronze 1</option>
+                    <option value="6">Bronze 2</option>
+                    <option value="3">Bronze 3</option>
+                    <option value="44">Silver 1</option>
+                    <option value="96">Silver 2</option>
+                    <option value="22">Silver 3</option>
+                    <option value="11">Gold 1</option>
+                    <option value="19">Gold 2</option>
+                    <option value="10">Gold 3</option>
+                    <option value="86">Platinum 1</option>
+                    <option value="69">Platinum 2</option>
+                    <option value="77">Platinum 3</option>
+                    <option value="76">Diamond 1</option>
+                    <option value="32">Diamond 2</option>
+                    <option value="12">Diamond 3</option>
+                    <option value="90">Champion 1</option>
+                    <option value="60">Champion 2</option>
+                    <option value="40">Champion 3</option>
+                    <option value="35">Grand Champion 1</option>
+                    <option value="67">Grand Champion 2</option>
+                    <option value="68">Grand Champion 3</option>
+                    <option value="99">Supersonic Legend</option>
+                    
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Book Rank</button>
+        </form>
+    </div>
+{% endblock %}

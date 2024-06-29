@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @keyframes hide {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        .hide {
+            float: right;
+        }
+
+        .post {
+            background-color: #77dd11;
+            padding: 20px;
+            margin-bottom: 10px;
+            animation-name: hide;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+            animation-play-state: paused;
+        }
+
+        body {
+            padding-bottom: 50px;
+        }
+    </style>
+    <script src="https://s3.amazonaws.com/builds.handlebarsjs.com/handlebars.min-v4.7.8.js"></script>
+    <script id="post" type="text/x-handlebars-template">
+        <div class="post">
+            {{contents}}
+            <button class="hide">Hide</button>
+        </div>
+    </script>
+    <script>
+        let counter = 1;
+        const quantity = 20;
+
+        document.addEventListener('DOMContentLoaded', load);
+
+        window.onscroll = () => {
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                load();
+            }
+        };
+
+        document.addEventListener('click', event => {
+            const element = event.target;
+            if (element.className === 'hide') {
+                element.parentElement.style.animationPlayState = 'running';
+                element.parentElement.addEventListener('animationed', () => {
+                    element.parentElement.remove();
+                });
+            }
+        });
+
+        function load() {
+            const start = counter;
+            const end = start + quantity - 1;
+            counter = end + 1;
+
+            const request = new XMLHttpRequest();
+            request.open('POST', '/posts');
+            request.onload = () => {
+                if (request.status === 200) {
+                    const data = JSON.parse(request.responseText);
+                    console.log('Received data:', data);  
+                    data.forEach(add_post);
+                }
+            };
+
+            const data = new FormData();
+            data.append('start', start);
+            data.append('end', end);
+
+            request.send(data);
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const source = document.querySelector('#post').innerHTML;
+            post_template = Handlebars.compile(source);
+        });
+
+        function add_post(contents) {
+            const post = post_template({ contents });
+            document.querySelector('#posts').innerHTML += post;
+            console.log('Added post:', post);  
+        }
+    </script>
+    <title>Welcome to Twitter!</title>
+</head>
+<body>
+    <div id="posts"></div>
+</body>
+</html>

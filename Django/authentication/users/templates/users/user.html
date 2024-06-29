@@ -1,0 +1,9 @@
+{% extends "users/base.html" %}
+
+{% block body %}
+    `<h1>Welcome to the Dark Web {{ user.first_name }}</h1>
+    <ul>
+        <li>You are currently logged in as {{ user.username }}</li>
+        <li><a href="{% url 'logout' %}">Logouut</a></li>
+    </ul>
+{% endblock %}

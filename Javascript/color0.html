@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+
+                document.querySelector('#red').onclick = function() {
+                    document.querySelector('#This_is_a_text').style.color = 'red';
+                };
+
+                document.querySelector('#green').onclick = function() {
+                    document.querySelector('#This_is_a_text').style.color = 'green';
+                };
+
+                document.querySelector('#blue').onclick = function() {
+                    document.querySelector('#This_is_a_text').style.color = 'blue';
+                };
+
+                document.querySelector('#gold').onclick = function() {
+                    document.querySelector('#This_is_a_text').style.color = 'gold';
+                };
+            });
+        </script>
+        <title>Webpage!</title>
+    </head>
+    <body>
+        <h1 id="This_is_a_text">This is a text!</h1>
+        <button id="red">Red</button>
+        <button id="green">Green</button>
+        <button id="blue">Blue</button>
+        <button id="gold">Gold</button>
+    </body>
+</html>

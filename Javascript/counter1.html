@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <script>
+
+            let counter = 0;
+
+            function count() {
+                counter++;
+                document.querySelector('#counter').innerHTML = counter;
+
+                if (counter % 100 === 0) {
+                    alert(`Counter is at ${counter}!`);
+                }
+
+                else if (counter === 911) {
+                    alert(`September 11th attacks, Osama Bin Laden & George W Bush. September 11th 2001.`);
+                }
+            }
+        </script>
+        <title>Webpage!</title>
+    </head>
+    <body>
+        <h1 id="counter">0</h1>
+        <button onclick="count()">Count!</button>
+    </body>
+</html>
